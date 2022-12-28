@@ -36,6 +36,9 @@ namespace railwayReservation
             services.AddScoped<IPassengerDataService, PassengerDataService>();
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IUserDataService, UserDataService>();
+
+            services.AddCors();
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -53,6 +56,13 @@ namespace railwayReservation
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseCors(x => x
+                 .AllowAnyMethod()
+                 .AllowAnyHeader()
+                 .SetIsOriginAllowed(origin => true) // allow any origin
+                 .AllowCredentials()); // allow credentials
+
 
             app.UseEndpoints(endpoints =>
             {

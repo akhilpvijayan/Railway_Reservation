@@ -1,0 +1,243 @@
+<div class="container dashboard-link">
+    <button style="width: 7em; float: right;" class="btn btn-primary form-control">
+        <i class="fa fa-share-square fa-1x" style="color: rgb(255, 255, 255);"></i> Dashboard</button>
+</div>
+<div class="container">
+   
+<form name="passengerForm" autocomplete="off" #form="ngForm" (ngSubmit)="onSubmit(form)">
+    <div class="form-control">
+        <div class="container mt-3" style="width: 30em;">
+            <!--Staff ID-->
+            <input type="number" name="passengerId" [(ngModel)]="passengerService.formData.passengerId" hidden>
+
+            <!--User Id-->
+            <div class="form-group">
+                <label>User Id assigned</label>
+                <input type="number" name="PassengerId" #PassengerId="ngModel" 
+                    [(ngModel)]="passengerService.formData.passengerId" class="form-control"
+                    placeholder="User Id " maxlength="2" required 
+                     />
+
+            </div>
+
+            <!--Staff Name-->
+            <div class="form-gorup">
+                <label><b>Full Name of Passenger</b></label>
+                <input type="text" name="PassengerName" #PassengerName="ngModel"
+                    [(ngModel)]="passengerService.formData.passengerName" class="form-control" pattern="[a-zA-Z\s]+"
+                    placeholder="Enter Full name of the passenger" minlength="04" maxlength="40" required
+                    [ngClass]="{ 'is-invalid' : PassengerName.touched && PassengerName.invalid }" />
+                <div class="validation-error" *ngIf="PassengerName.touched && PassengerName.invalid">
+                    <div *ngIf="['required']">Full Name is Required</div>
+                    <div *ngIf="['pattern']">
+                        Wrong Format
+                    </div>
+                </div>
+            </div>
+
+            <!--Doctor Specialization-->
+            <!-- <div class="form-group">
+                <label class="col-md-4"><b>Specialization</b></label>
+                <select name="DoctorSpecializationId" id="DoctorSpecializationId" class="form-control"
+                    #DoctorSpecializationId="ngModel" [(ngModel)]="adminService.formData.DoctorSpecializationId"
+                    [ngClass]="{ 'is-invalid' : DoctorSpecializationId.touched && DoctorSpecializationId.invalid }"
+                    required>
+                    <option value=0 disabled>Select Specialization for the doctor</option>
+                    <option *ngFor="let special of adminService.special" value='{{special.SpecializationId}}'>
+                        {{special.SpecializationName}}
+
+                    </option>
+
+
+
+                </select>
+                <div class="validation-error" *ngIf="DoctorSpecializationId.touched && DoctorSpecializationId.invalid">
+                    <div *ngIf="DoctorSpecializationId.errors.required"> Specify specialization
+
+                    </div>
+                </div>
+            </div> -->
+            <!--PNR Number of passenger-->
+
+            <div class="form-group">
+                <label><b>PnrNumber</b></label>
+                <input type="number" name="PnrNumber" #PnrNumber="ngModel" pattern="[0-9]+"
+                    [(ngModel)]="passengerService.formData.pnrNo" class="form-control"
+                    placeholder="Enter PnrNumber of the passenger" maxlength="2" required
+                    [ngClass]="{ 'is-invalid' : PnrNumber.touched && PnrNumber.invalid }" />
+                <div class="validation-error" *ngIf="PassengerAge.touched && PassengerAge.invalid">
+                    <div *ngIf="['required']"> PnrNumber is required
+
+                    </div>
+                    <div *ngIf="['pattern']">
+                        Wrong PnrNumber format
+                    </div>
+                </div>
+            </div>
+
+            <!--Age of passenger-->
+
+            <div class="form-group">
+                <label><b>Age</b></label>
+                <input type="number" name="PassengerAge" #PassengerAge="ngModel" pattern="[0-9]+"
+                    [(ngModel)]="passengerService.formData.passengerAge" class="form-control"
+                    placeholder="Enter age of the passenger" maxlength="2" required
+                    [ngClass]="{ 'is-invalid' : PassengerAge.touched && PassengerAge.invalid }" />
+                <div class="validation-error" *ngIf="PassengerAge.touched && PassengerAge.invalid">
+                    <div *ngIf="['required']"> Passenger Age is required
+
+                    </div>
+                    <div *ngIf="['pattern']">
+                        Wrong age format
+                    </div>
+                </div>
+            </div>
+
+            <!--Gender-->
+            <div class="form-group">
+                <label class="col-md-4"><b>Gender</b></label>
+                <select name="PassengerGender" id="PassengerGender" class="form-control" required #PassengerGender="ngModel"
+                    [(ngModel)]="passengerService.formData.passengerGender"
+                    [ngClass]="{ 'is-invalid' : PassengerGender.touched && PassengerGender.invalid }">
+                    <option value="" disabled selected>Select Gender</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Others">Others</option>
+
+
+
+                </select>
+                <div class="validation-error" *ngIf="PassengerGender.touched && PassengerGender.invalid">
+                    <div *ngIf="['required']"> please select a gender.
+
+                    </div>
+                </div>
+            </div>
+
+            <!--Reservation Status-->
+            <div class="form-group">
+                <label class="col-md-4"><b>Reservation Status</b></label>
+                <select name="ReservationStatus" id="ReservationStatus" class="form-control" required #ReservationStatus="ngModel"
+                    [(ngModel)]="passengerService.formData.reservationStatus"
+                    [ngClass]="{ 'is-invalid' : ReservationStatus.touched && ReservationStatus.invalid }">
+                    <option value="" disabled selected>Select ReservationStatus</option>
+                    <option value="Completed">Completed</option>
+                    <option value="Pending">Pending</option>
+                </select>
+                <div class="validation-error" *ngIf="ReservationStatus.touched && ReservationStatus.invalid">
+                    <div *ngIf="['required']"> please select a Reservation Status.
+
+                    </div>
+                </div>
+            </div>
+
+            
+            <!--Age of passenger-->
+
+            <div class="form-group">
+                <label><b>Seat Number</b></label>
+                <input type="number" name="SeatNumber" #SeatNumber="ngModel" pattern="[0-9]+"
+                    [(ngModel)]="passengerService.formData.seatNumber" class="form-control"
+                    placeholder="Enter Seat Number of the passenger" maxlength="2" required
+                    [ngClass]="{ 'is-invalid' : SeatNumber.touched && SeatNumber.invalid }" />
+                <div class="validation-error" *ngIf="SeatNumber.touched && SeatNumber.invalid">
+                    <div *ngIf="['required']"> Passenger Seat Number is required
+
+                    </div>
+                    <div *ngIf="['pattern']">
+                        Wrong Seat Number format
+                    </div>
+                </div>
+            </div>
+
+            <!--Seat Class-->
+            <div class="form-group">
+                <label class="col-md-4"><b>SeatClass</b></label>
+                <select name="SeatClass" id="SeatClass" class="form-control" required #SeatClass="ngModel"
+                    [(ngModel)]="passengerService.formData.seatClass"
+                    [ngClass]="{ 'is-invalid' : SeatClass.touched && SeatClass.invalid }">
+                    <option value="" disabled selected>Select SeatClass</option>
+                    <option value="1">AC</option>
+                    <option value="2">Sleeper</option>
+                </select>
+                <div class="validation-error" *ngIf="SeatClass.touched && SeatClass.invalid">
+                    <div *ngIf="['required']"> please select a SeatClass
+                    </div>
+                </div>
+            </div>
+
+                        <!--Starting point-->
+            <div class="form-group">
+                <label class="col-md-4"><b>Starting Point</b></label>
+                <select name="StartingPoint" id="StartingPoint" class="form-control" required #StartingPoint="ngModel"
+                    [(ngModel)]="passengerService.formData.startingPoint"
+                    [ngClass]="{ 'is-invalid' : StartingPoint.touched && StartingPoint.invalid }">
+                    <option value="" disabled selected>Select StartingPoint</option>
+                    <option value="Toronto">Toronto</option>
+                    <option value="Vancouer">Vancouer</option>
+                </select>
+                <div class="validation-error" *ngIf="StartingPoint.touched && SeatClass.invalid">
+                    <div *ngIf="['required']"> please select a StartingPoint
+                    </div>
+                </div>
+            </div>
+
+
+                        <!--destination-->
+            <div class="form-group">
+                <label class="col-md-4"><b>Destination</b></label>
+                <select name="Destination" id="Destination" class="form-control" required #Destination="ngModel"
+                    [(ngModel)]="passengerService.formData.destination"
+                    [ngClass]="{ 'is-invalid' : Destination.touched && Destination.invalid }">
+                    <option value="" disabled selected>Select Destination</option>
+                    <option value="Toronto">Toronto</option>
+                    <option value="Vancouer">Vancouer</option>
+                </select>
+                <div class="validation-error" *ngIf="Destination.touched && SeatClass.invalid">
+                    <div *ngIf="['required']"> please select a Destination
+                    </div>
+                </div>
+            </div>
+
+                        <!--bookedUser-->
+            <div class="form-group">
+                <label class="col-md-4"><b>BookedUser</b></label>
+                <select name="BookedUser" id="BookedUser" class="form-control" required #BookedUser="ngModel"
+                    [(ngModel)]="passengerService.formData.bookedUser"
+                    [ngClass]="{ 'is-invalid' : BookedUser.touched && BookedUser.invalid }">
+                    <option value="" disabled selected>Select BookedUser</option>
+                    <option value="1">Superuser</option>
+                    <option value="2">John</option>
+                </select>
+                <div class="validation-error" *ngIf="BookedUser.touched && BookedUser.invalid">
+                    <div *ngIf="['required']"> please select a BookedUser
+                    </div>
+                </div>
+            </div>
+
+                                    <!--ticket Number-->
+            <div class="form-group">
+                <label class="col-md-4"><b>BookedUser</b></label>
+                <select name="TicketNumber" id="TicketNumber" class="form-control" required #TicketNumber="ngModel"
+                    [(ngModel)]="passengerService.formData.ticketNumber"
+                    [ngClass]="{ 'is-invalid' : TicketNumber.touched && TicketNumber.invalid }">
+                    <option value="" disabled selected>Select TicketNumber</option>
+                    <option value="1">34243</option>
+                    <option value="2">332423</option>
+                </select>
+                <div class="validation-error" *ngIf="TicketNumber.touched && TicketNumber.invalid">
+                    <div *ngIf="['required']"> please select a TicketNumber
+                    </div>
+                </div>
+            </div>
+
+            <!--Submit Button-->
+            <br>
+            <div class="form-group">
+                <button type="submit" [disabled]="!(form.valid && form.dirty)"
+                    class="btn btn-lg btn-primary form-control">Submit</button>
+            </div>
+        </div>
+    </div>
+</form>
+</div>

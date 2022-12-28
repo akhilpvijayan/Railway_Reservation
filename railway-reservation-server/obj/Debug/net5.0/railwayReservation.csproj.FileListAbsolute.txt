@@ -158,7 +158,6 @@ C:\Railway Reservation System\Railway_Reservation\railway-reservation-server\bin
 C:\Railway Reservation System\Railway_Reservation\railway-reservation-server\bin\Debug\net5.0\Humanizer.dll
 C:\Railway Reservation System\Railway_Reservation\railway-reservation-server\bin\Debug\net5.0\Microsoft.Bcl.AsyncInterfaces.dll
 C:\Railway Reservation System\Railway_Reservation\railway-reservation-server\bin\Debug\net5.0\Microsoft.Data.SqlClient.dll
-C:\Railway Reservation System\Railway_Reservation\railway-reservation-server\bin\Debug\net5.0\Microsoft.DotNet.InternalAbstractions.dll
 C:\Railway Reservation System\Railway_Reservation\railway-reservation-server\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.dll
 C:\Railway Reservation System\Railway_Reservation\railway-reservation-server\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Abstractions.dll
 C:\Railway Reservation System\Railway_Reservation\railway-reservation-server\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Design.dll
@@ -169,7 +168,6 @@ C:\Railway Reservation System\Railway_Reservation\railway-reservation-server\bin
 C:\Railway Reservation System\Railway_Reservation\railway-reservation-server\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
 C:\Railway Reservation System\Railway_Reservation\railway-reservation-server\bin\Debug\net5.0\Microsoft.Extensions.DependencyModel.dll
 C:\Railway Reservation System\Railway_Reservation\railway-reservation-server\bin\Debug\net5.0\Microsoft.Extensions.Options.dll
-C:\Railway Reservation System\Railway_Reservation\railway-reservation-server\bin\Debug\net5.0\Microsoft.Extensions.PlatformAbstractions.dll
 C:\Railway Reservation System\Railway_Reservation\railway-reservation-server\bin\Debug\net5.0\Microsoft.Extensions.Primitives.dll
 C:\Railway Reservation System\Railway_Reservation\railway-reservation-server\bin\Debug\net5.0\Microsoft.Identity.Client.dll
 C:\Railway Reservation System\Railway_Reservation\railway-reservation-server\bin\Debug\net5.0\Microsoft.Identity.Client.Extensions.Msal.dll
@@ -217,3 +215,5 @@ C:\Railway Reservation System\Railway_Reservation\railway-reservation-server\obj
 C:\Railway Reservation System\Railway_Reservation\railway-reservation-server\obj\Debug\net5.0\ref\railwayReservation.dll
 C:\Railway Reservation System\Railway_Reservation\railway-reservation-server\obj\Debug\net5.0\railwayReservation.pdb
 C:\Railway Reservation System\Railway_Reservation\railway-reservation-server\obj\Debug\net5.0\railwayReservation.genruntimeconfig.cache
+C:\Railway Reservation System\Railway_Reservation\railway-reservation-server\bin\Debug\net5.0\System.Web.Cors.dll
+C:\Railway Reservation System\Railway_Reservation\railway-reservation-server\bin\Debug\net5.0\Microsoft.DotNet.PlatformAbstractions.dll

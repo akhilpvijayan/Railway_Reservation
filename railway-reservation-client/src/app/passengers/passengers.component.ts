@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { PassengersService } from '../services/passengers.service';
+import { TrainService } from '../services/train.service';
 
 @Component({
   selector: 'app-passengers',
@@ -9,7 +11,7 @@ import { PassengersService } from '../services/passengers.service';
 })
 export class PassengersComponent implements OnInit {
 
-  constructor(public passengerService: PassengersService, public router: Router) { }
+  constructor(public passengerService: PassengersService, public trainService: TrainService, public router: Router) { }
   count: number = 0;
   ngOnInit(): void {
     this.passengerService.getAllPassengers();

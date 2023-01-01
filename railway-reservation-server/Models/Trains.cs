@@ -18,5 +18,6 @@ namespace railwayReservation.Models
         public int ACSeats { get; set; }
         public int semiSleeperSeats { get; set; }
         public int sleeperSeats { get; set; }
+        public string trainType { get; set; }
     }
 }

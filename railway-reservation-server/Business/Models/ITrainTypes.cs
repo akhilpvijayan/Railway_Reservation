@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 
 namespace railwayReservation.Business.Models
 {
-    public interface IStations
+    public interface ITrainTypes
     {
-        int stationId { get; set; }
-        string stationName { get; set; }
+        int trainTypeId { get; set; }
+        string trainType { get; set; }
     }
 }

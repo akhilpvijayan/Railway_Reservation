@@ -11,14 +11,14 @@
             <input type="number" name="passengerId" [(ngModel)]="passengerService.formData.passengerId" hidden>
 
             <!--User Id-->
-            <div class="form-group">
+            <!-- <div class="form-group">
                 <label>User Id assigned</label>
                 <input type="number" name="PassengerId" #PassengerId="ngModel" 
                     [(ngModel)]="passengerService.formData.passengerId" class="form-control"
                     placeholder="User Id " maxlength="2" required 
                      />
 
-            </div>
+            </div> -->
 
             <!--Staff Name-->
             <div class="form-gorup">
@@ -136,7 +136,7 @@
 
             <div class="form-group">
                 <label><b>Seat Number</b></label>
-                <input type="number" name="SeatNumber" #SeatNumber="ngModel" pattern="[0-9]+"
+                <input type="text" name="SeatNumber" #SeatNumber="ngModel"
                     [(ngModel)]="passengerService.formData.seatNumber" class="form-control"
                     placeholder="Enter Seat Number of the passenger" maxlength="2" required
                     [ngClass]="{ 'is-invalid' : SeatNumber.touched && SeatNumber.invalid }" />

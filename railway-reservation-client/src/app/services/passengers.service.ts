@@ -20,13 +20,13 @@ export class PassengersService {
 
   //insert a passenger
   addPassenger(passengers: Passengers): Observable<any> {
-    return this.httpClient.post(environment.apiUrl + "/Passengers", passengers);
+    return this.httpClient.post(environment.apiUrl + "/passengers/", passengers);
 
   }
 
   //update a passenger
   updatePatient(passengers: Passengers): Observable<any> {
-    return this.httpClient.put(environment.apiUrl + "/Passengers", passengers);
+    return this.httpClient.put(environment.apiUrl + "/passengers", passengers);
   }
 
   //get particular passenger

@@ -1,0 +1,251 @@
+<body data-spy="scroll" data-target="#navbar" data-offset="72" class="position-relative">
+  <header class="fixed-top page-header">
+    <div class="container-fluid container-fluid-max">
+      <nav id="navbar" class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="#home">Booking</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-lg-between" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="#process">How It Works</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#featured-destinations">Featured Destinations</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#popular-destinations">Popular Destinations</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact-us">Contact Us</a>
+            </li>
+          </ul>
+          <div class="text-white">
+            <a class="nav-link"routerLink="/login">Login</a>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="home" class="d-flex align-items-center position-relative vh-100 cover hero" style="background-image:url(https://cdn.pixabay.com/photo/2021/06/21/22/37/train-6354741_1280.jpg);">
+      <div class="container-fluid ">
+        <div class="d-flex justify-content-left search">
+            <div class="card mt-5 p-4 searchTrain">
+                <form name="trainForm" autocomplete="off" #form="ngForm" (ngSubmit)="onSubmit(form)">
+                    <h2>Book Ticket</h2>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="first">From</label>
+                          <select name="Source" id="Source" class="form-control" required #Source="ngModel"
+                          [(ngModel)]="trainService.formData.source">
+                          <option value="" disabled selected>Select Starting Point/Station</option>
+                          <option value="1">AC</option>
+                          <option value="2">Sleeper</option>
+                          </select>
+                        </div>
+                      </div>
+                
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="last">To</label>
+                          <select name="Destination" id="Destination" class="form-control" required #Destination="ngModel"
+                          [(ngModel)]="trainService.formData.destination">
+                            <option value="" disabled selected>Select Destination/Station</option>
+                            <option value="1">AC</option>
+                            <option value="3">Sleeper</option>
+                            </select>
+                        </div>
+                      </div>
+                    </div>  
+                    <br>
+                    <div class="form-group">
+                        <label for="last">Train Type</label>
+                        <select name="TrainType" id="TrainType" class="form-control" required #TrainType="ngModel"
+                        [(ngModel)]="trainService.formData.trainType">
+                          <option value="" disabled selected>Select Train Type</option>
+                          <option value="1">AC</option>
+                          <option value="4">Sleeper</option>
+                          </select>
+                      </div>   
+                    <br>
+                    <button type="submit" class="btn btn-primary block form-control">Search</button>
+                  </form>
+            </div>	
+        </div>
+      </div>
+    </section>
+
+    <section id="process" class="process">
+      <div class="container-fluid container-fluid-max">
+        <div class="row text-center py-5">
+          <div class="col-12 pb-4">
+            <h2 class="text-blue">How It Works</h2>
+          </div>
+          <div class="col-12 col-sm-6 col-lg-3">
+            <span class="fa-stack fa-2x">
+              <i class="fas fa-circle fa-stack-2x text-blue"></i>
+              <i class="fas fa-map-marked fa-stack-1x text-white"></i>
+            </span>
+            <h3 class="mt-3 text-blue h4">Choose a destination</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed repudiandae.</p>
+          </div>
+          <div class="col-12 col-sm-6 col-lg-3">
+            <span class="fa-stack fa-2x">
+              <i class="fas fa-circle fa-stack-2x text-blue"></i>
+              <i class="fas fa-plane fa-stack-1x text-white"></i>
+            </span>
+            <h3 class="mt-3 text-blue h4">Book a flight</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed repudiandae.</p>
+          </div>
+          <div class="col-12 col-sm-6 col-lg-3">
+            <span class="fa-stack fa-2x">
+              <i class="fas fa-circle fa-stack-2x text-blue"></i>
+              <i class="fas fa-car fa-stack-1x text-white"></i>
+            </span>
+            <h3 class="mt-3 text-blue h4">Rent a car</h3>
+            <p>Nor again is there anyone who loves or pursues or desires to obtain pain.</p>
+          </div>
+          <div class="col-12 col-sm-6 col-lg-3">
+            <span class="fa-stack fa-2x">
+              <i class="fas fa-circle fa-stack-2x text-blue"></i>
+              <i class="fas fa-home fa-stack-1x text-white"></i>
+            </span>
+            <h3 class="mt-3 text-blue h4">Rent an appartment</h3>
+            <p>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi.</p>
+          </div>
+          <div class="col-12 pt-3">
+            <a class="btn bg-blue text-white" target="_blank" href="https://en.wikipedia.org/wiki/Neuschwanstein_Castle" role="button">Learn More</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="featured-destinations" class="featured-destinations bg-lightblue">
+      <div class="row no-gutters">
+        <div class="col-12 col-md-6 d-flex align-items-center order-1 order-md-0">
+          <div class="p-15">
+            <h3>Explore Greece</h3>
+            <p><strong>Santorini</strong> is an island in the southern Aegean Sea, about 200 km (120 mi) southeast of Greece's mainland. It is the largest island of a small, circular archipelago, which bears the same name and is the remnant of a volcanic caldera. It forms the southernmost member of the Cyclades group of islands, with an area of approximately 73 km2 (28 sq mi) and a 2011 census population of 15,550.</p>
+            <p>The municipality of Santorini includes the inhabited islands of Santorini and Therasia and the uninhabited islands of Nea Kameni, Palaia Kameni, Aspronisi, and Christiana. The total land area is 90.623 km2 (34.990 sq mi). Santorini is part of the Thira regional unit.</p>
+            <a class="btn bg-blue text-white" target="_blank" href="https://en.wikipedia.org/wiki/%C3%85lesund" role="button">Read More</a>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 order-0 order-md-1">
+          <div class="vh-100 cover" style="background-image: url(https://i.ibb.co/JqyDnBt/greece.jpg);"></div>
+        </div>
+        <div class="col-12 col-md-6 order-2">
+          <div class="vh-100 cover" style="background-image: url(https://i.ibb.co/W65r8pd/Venice.jpg);"></div>
+        </div>
+        <div class="col-12 col-md-6 d-flex align-items-center order-3">
+          <div class="p-15">
+            <h3>Explore Italy</h3>
+            <p><strong>Venice</strong> is a city in northeastern Italy and the capital of the Veneto region.
+
+It is situated across a group of 118 small islands that are separated by canals and linked by over 400 bridges. The islands are located in the shallow Venetian Lagoon, an enclosed bay that lies between the mouths of the Po and the Piave rivers (more exactly between the Brenta and the Sile).</p>
+            <p>Parts of Venice are renowned for the beauty of their settings, their architecture, and artwork. The lagoon and a part of the city are listed as a UNESCO World Heritage Site.</p>
+            <a class="btn bg-blue text-white" target="_blank" href="https://en.wikipedia.org/wiki/Venice" role="button">Read More</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="popular-destinations" class="popular-destinations py-5">
+      <div class="container-fluid container-fluid-max">
+        <div class="row">
+          <div class="col-12">
+            <h2 class="pb-3 text-blue">Popular Destinations</h2>
+          </div>
+          <div class="col-12 col-sm-6 col-md-4">
+            <a href="" class="text-white">
+              <figure class="position-relative overflow-hidden">
+                <img class="img-fluid" src="https://i.ibb.co/Xskb556/NewYork.jpg" alt="New York">
+                <figcaption class="d-flex align-items-center justify-content-center position-absolute">
+                  <h3>New York</h3>
+                </figcaption>
+              </figure>
+            </a>
+          </div>
+          <div class="col-12 col-sm-6 col-md-4">
+            <a href="" class="text-white">
+              <figure class="position-relative overflow-hidden">
+                <img class="img-fluid" src="https://i.ibb.co/vHds76K/Vienna.jpg" alt="Vienna">
+                <figcaption class="d-flex align-items-center justify-content-center position-absolute">
+                  <h3>Vienna</h3>
+                </figcaption>
+              </figure>
+            </a>
+          </div>
+          <div class="col-12 col-sm-6 col-md-4">
+            <a href="" class="text-white">
+              <figure class="position-relative overflow-hidden">
+                <img class="img-fluid" src="https://i.ibb.co/dGSWH7g/dubai.jpg" alt="Dubai">
+                <figcaption class="d-flex align-items-center justify-content-center position-absolute">
+                  <h3>Dubai</h3>
+                </figcaption>
+              </figure>
+            </a>
+          </div>
+          <div class="col-12 col-sm-6">
+            <a href="" class="text-white">
+              <figure class="position-relative overflow-hidden">
+                <img class="img-fluid" src="https://i.ibb.co/z2QCs18/Edinburgh.jpg" alt="Edinburgh">
+                <figcaption class="d-flex align-items-center justify-content-center position-absolute">
+                  <h3>Edinburgh</h3>
+                </figcaption>
+              </figure>
+            </a>
+          </div>
+          <div class="col-12 col-sm-6">
+            <a href="" class="text-white">
+              <figure class="position-relative overflow-hidden">
+                <img class="img-fluid" src="https://i.ibb.co/Wp0TdZw/paris.jpg" alt="Paris">
+                <figcaption class="d-flex align-items-center justify-content-center position-absolute">
+                  <h3>Paris</h3>
+                </figcaption>
+              </figure>
+            </a>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col text-center">
+            <a class="btn bg-blue text-white" href="" role="button">More Destinations</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="contact-us" class="py-5 contact bg-lightblue">
+      <div class="container-fluid container-fluid-max">
+        <div class="row justify-content-center">
+          <div class="col-12 col-md-auto py-3 text-center">
+            <h2 class="mb-0 text-blue">Ready for your next trip?</h2>
+            <p class="mb-0 h4 text-blue font-weight-normal">Get in touch today!</p>
+          </div>
+          <div class="col-12 col-md-auto d-flex justify-content-center align-items-center">
+            <a class="btn bg-blue text-white font-weight-bold" href="" role="button">Contact Us</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="py-5 page-footer">
+    <div class="container-fluid container-fluid-max">
+      <div class="row">
+        <div class="col-12 col-md-6 footer-child copyright">
+          Booking © 2019 All Rights Reserved
+        </div>
+        <div class="col-12 col-md-6 footer-child footer-links">
+          <a href="" class="mr-3">Privacy Policy</a>
+          <a href="">FAQ</a>
+          <div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>

@@ -18,7 +18,7 @@ namespace railwayReservation.Models
         public DbSet<Trains> Trains { get; set; }
         public DbSet<Tickets> Tickets { get; set; }
         public DbSet<Seats> Seats { get; set; }
-
+        public DbSet<TrainTypes> Traintypes { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Seed();

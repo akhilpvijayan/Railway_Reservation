@@ -2,16 +2,15 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace railwayReservation.Models
 {
-    public class Stations :IStations
+    public class TrainTypes: ITrainTypes
     {
         [Key]
-        public int stationId { get; set; }
-        public string stationName { get; set; }
+        public int trainTypeId { get; set; }
+        public string trainType { get; set; }
     }
 }

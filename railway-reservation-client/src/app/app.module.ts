@@ -9,12 +9,18 @@ import { AddPassengerComponent } from './passengers/add-passenger/add-passenger.
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { LoginComponent } from './login/login.component';
+import { TrainsComponent } from './trains/trains.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PassengersComponent,
-    AddPassengerComponent
+    AddPassengerComponent,
+    DashboardComponent,
+    LoginComponent,
+    TrainsComponent
   ],
   imports: [
     BrowserModule,

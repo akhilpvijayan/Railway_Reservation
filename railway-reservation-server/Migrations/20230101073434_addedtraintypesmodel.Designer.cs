@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using railwayReservation.Models;
 
 namespace railwayReservation.Migrations
 {
     [DbContext(typeof(ApplicationDBContext))]
-    partial class ApplicationDBContextModelSnapshot : ModelSnapshot
+    [Migration("20230101073434_addedtraintypesmodel")]
+    partial class addedtraintypesmodel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -147,59 +149,23 @@ namespace railwayReservation.Migrations
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
+                    b.Property<DateTime>("arrivalTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("depatureTime")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("stationName")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("trainId")
+                        .HasColumnType("int");
+
                     b.HasKey("stationId");
 
-                    b.ToTable("Stations");
+                    b.HasIndex("trainId");
 
-                    b.HasData(
-                        new
-                        {
-                            stationId = 1,
-                            stationName = "Vancouer"
-                        },
-                        new
-                        {
-                            stationId = 2,
-                            stationName = "Alberta"
-                        },
-                        new
-                        {
-                            stationId = 3,
-                            stationName = "Calgary"
-                        },
-                        new
-                        {
-                            stationId = 4,
-                            stationName = "British Columbia"
-                        },
-                        new
-                        {
-                            stationId = 5,
-                            stationName = "Florida"
-                        },
-                        new
-                        {
-                            stationId = 6,
-                            stationName = "Chicago"
-                        },
-                        new
-                        {
-                            stationId = 7,
-                            stationName = "New Jersey"
-                        },
-                        new
-                        {
-                            stationId = 8,
-                            stationName = "Ontario"
-                        },
-                        new
-                        {
-                            stationId = 9,
-                            stationName = "Seattle"
-                        });
+                    b.ToTable("Stations");
                 });
 
             modelBuilder.Entity("railwayReservation.Models.Tickets", b =>
@@ -243,7 +209,7 @@ namespace railwayReservation.Migrations
                         {
                             ticketId = 1,
                             bookedDate = new DateTime(2023, 1, 1, 0, 0, 0, 0, DateTimeKind.Local),
-                            journeyDate = new DateTime(2023, 1, 1, 15, 4, 38, 98, DateTimeKind.Local).AddTicks(4791),
+                            journeyDate = new DateTime(2023, 1, 1, 13, 4, 32, 874, DateTimeKind.Local).AddTicks(5085),
                             ticketFare = 580,
                             ticketNumber = "A6755HI9899",
                             ticketStatus = "Confirmed",
@@ -260,58 +226,6 @@ namespace railwayReservation.Migrations
                             ticketStatus = "Confirmed",
                             trainId = 5,
                             userId = 2
-                        });
-                });
-
-            modelBuilder.Entity("railwayReservation.Models.TrainTypes", b =>
-                {
-                    b.Property<int>("trainTypeId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .UseIdentityColumn();
-
-                    b.Property<string>("trainType")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("trainTypeId");
-
-                    b.ToTable("Traintypes");
-
-                    b.HasData(
-                        new
-                        {
-                            trainTypeId = 1,
-                            trainType = "Bullet Train"
-                        },
-                        new
-                        {
-                            trainTypeId = 2,
-                            trainType = "Passenger Train"
-                        },
-                        new
-                        {
-                            trainTypeId = 3,
-                            trainType = "Semi High Speed Train"
-                        },
-                        new
-                        {
-                            trainTypeId = 4,
-                            trainType = "Express Train"
-                        },
-                        new
-                        {
-                            trainTypeId = 5,
-                            trainType = "Luxury Train"
-                        },
-                        new
-                        {
-                            trainTypeId = 6,
-                            trainType = "Super Fast Train"
-                        },
-                        new
-                        {
-                            trainTypeId = 7,
-                            trainType = "Suburban Train"
                         });
                 });
 
@@ -355,73 +269,67 @@ namespace railwayReservation.Migrations
                         {
                             trainId = 1,
                             ACSeats = 25,
-                            destination = "2",
+                            destination = "Vancouer",
                             generalSeats = 50,
                             semiSleeperSeats = 48,
                             sleeperSeats = 40,
-                            source = "1",
-                            trainName = "The Ambassador",
-                            trainType = "2"
+                            source = "Seattle",
+                            trainName = "The Ambassador"
                         },
                         new
                         {
                             trainId = 2,
                             ACSeats = 15,
-                            destination = "3",
+                            destination = "Gaspe",
                             generalSeats = 52,
                             semiSleeperSeats = 18,
                             sleeperSeats = 10,
-                            source = "2",
-                            trainName = "Chaleur",
-                            trainType = "4"
+                            source = "Montreal",
+                            trainName = "Chaleur"
                         },
                         new
                         {
                             trainId = 3,
                             ACSeats = 15,
-                            destination = "4",
+                            destination = "Yarmouth",
                             generalSeats = 52,
                             semiSleeperSeats = 18,
                             sleeperSeats = 10,
-                            source = "3",
-                            trainName = "Flying Bluenose",
-                            trainType = "5"
+                            source = "Halifax",
+                            trainName = "Flying Bluenose"
                         },
                         new
                         {
                             trainId = 4,
                             ACSeats = 15,
-                            destination = "4",
+                            destination = "Boston",
                             generalSeats = 52,
                             semiSleeperSeats = 18,
                             sleeperSeats = 10,
-                            source = "1",
-                            trainName = "The Gull",
-                            trainType = "6"
+                            source = "Halifax",
+                            trainName = "The Gull"
                         },
                         new
                         {
                             trainId = 5,
                             ACSeats = 15,
-                            destination = "6",
+                            destination = "Quebec City",
                             generalSeats = 52,
                             semiSleeperSeats = 18,
                             sleeperSeats = 10,
-                            source = "2",
-                            trainName = "Montreal",
-                            trainType = "3"
+                            source = "Montreal",
+                            trainName = "Montreal"
                         },
                         new
                         {
                             trainId = 6,
                             ACSeats = 15,
-                            destination = "1",
+                            destination = "Portland",
                             generalSeats = 52,
                             semiSleeperSeats = 18,
                             sleeperSeats = 10,
-                            source = "5",
-                            trainName = "Owl",
-                            trainType = "1"
+                            source = "Vancouer",
+                            trainName = "Owl"
                         });
                 });
 
@@ -510,6 +418,17 @@ namespace railwayReservation.Migrations
                             userPin = 256718983L,
                             userState = "British Columbia"
                         });
+                });
+
+            modelBuilder.Entity("railwayReservation.Models.Stations", b =>
+                {
+                    b.HasOne("railwayReservation.Models.Trains", "trainNo")
+                        .WithMany()
+                        .HasForeignKey("trainId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("trainNo");
                 });
 
             modelBuilder.Entity("railwayReservation.Models.Tickets", b =>

@@ -43,8 +43,9 @@
                           <select name="Source" id="Source" class="form-control" required #Source="ngModel"
                           [(ngModel)]="trainService.formData.source">
                           <option value="" disabled selected>Select Starting Point/Station</option>
-                          <option value="1">AC</option>
-                          <option value="2">Sleeper</option>
+                          <option *ngFor="let station of stationService.stations" value='{{station.stationId}}'>
+                            {{station.stationName}}
+                        </option>
                           </select>
                         </div>
                       </div>
@@ -55,8 +56,9 @@
                           <select name="Destination" id="Destination" class="form-control" required #Destination="ngModel"
                           [(ngModel)]="trainService.formData.destination">
                             <option value="" disabled selected>Select Destination/Station</option>
-                            <option value="1">AC</option>
-                            <option value="3">Sleeper</option>
+                            <option *ngFor="let station of stationService.stations" value='{{station.stationId}}'>
+                              {{station.stationName}}
+                          </option>
                             </select>
                         </div>
                       </div>
@@ -67,8 +69,9 @@
                         <select name="TrainType" id="TrainType" class="form-control" required #TrainType="ngModel"
                         [(ngModel)]="trainService.formData.trainType">
                           <option value="" disabled selected>Select Train Type</option>
-                          <option value="1">AC</option>
-                          <option value="4">Sleeper</option>
+                          <option *ngFor="let trainType of trainTypeService.trainTypes" value='{{trainType.trainTypeId}}'>
+                            {{trainType.trainType}}
+                        </option>
                           </select>
                       </div>   
                     <br>

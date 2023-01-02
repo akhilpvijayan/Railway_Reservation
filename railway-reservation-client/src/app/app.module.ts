@@ -12,6 +12,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginComponent } from './login/login.component';
 import { TrainsComponent } from './trains/trains.component';
+import { StationsComponent } from './stations/stations.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { TrainsComponent } from './trains/trains.component';
     AddPassengerComponent,
     DashboardComponent,
     LoginComponent,
-    TrainsComponent
+    TrainsComponent,
+    StationsComponent
   ],
   imports: [
     BrowserModule,

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
 using railwayReservation.Business.DataServices;
 using railwayReservation.Business.Services;
 using railwayReservation.Models;
@@ -23,6 +24,10 @@ namespace railwayReservation.Business.Services.Services
         public IEnumerable<Stations> GetStations()
         {
             return _stationDataService.GetStations();
+        }
+        public ActionResult<Stations> GetStation(int stationId)
+        {
+            return _stationDataService.GetStation(stationId);
         }
         #endregion
     }

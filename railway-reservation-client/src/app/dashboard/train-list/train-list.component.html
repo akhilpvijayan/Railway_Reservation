@@ -1,13 +1,75 @@
-<div class="container">
-    <div class="content">
-      <h1>Pratham</h1>
-      <h3>I love designing websites and keep things as simple as possible. My goals is to focus on minimalism and conveying the message that you want to send</h3>
-    </div>
-    <div class="flap"></div>
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <div class="text-white">
+      <a class="nav-link"routerLink="/home">Home</a>
   </div>
-  <table>
-    <tr *ngFor="let train of trainService.trains">
-        <td>{{train.trainName}}</td>
-    </tr>
-  </table>
+  <div class="search">
+    <form name="trainForm" autocomplete="off" #form="ngForm" (ngSubmit)="onSubmit(form)">
+      <div class="search-header block1">
+        Modify Search and Filter
+      </div>
+      &nbsp;
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="first">From</label>
+            <select name="Source" id="Source" class="form-control" required #Source="ngModel"
+            [(ngModel)]="trainService.formData.source">
+            <option *ngFor="let station of stationService.stations" value='{{station.stationId}}'>
+              {{station.stationName}}
+          </option>
+            </select>
+          </div>
+        </div>
   
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="last">To</label>
+            <select name="Destination" id="Destination" class="form-control" required #Destination="ngModel"
+            [(ngModel)]="trainService.formData.destination">
+              <option *ngFor="let station of stationService.stations" value='{{station.stationId}}'>
+                {{station.stationName}}
+            </option>
+              </select>
+          </div>
+        </div>
+      </div>  
+      <br>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="last">Train Type</label>
+          <select name="TrainType" id="TrainType" class="form-control" required #TrainType="ngModel"
+          [(ngModel)]="trainService.formData.trainType">
+            <option *ngFor="let trainType of trainTypeService.trainTypes" value='{{trainType.trainTypeId}}'>
+              {{trainType.trainType}}
+          </option>
+            </select>
+          </div>
+        </div>
+  
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="last">.</label>
+            <button type="submit" class="btn btn-primary block submit form-control">Apply Now</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  <hr>
+  <div class="grid-container">
+    <div id="grid-header"></div>
+    <ag-grid-angular
+      style="width: 100%; height: 270px;"
+      class="grid-angular"
+      [rowStyle]="rowStyle"
+      [suppressRowHoverHighlight]="suppressRowHoverHighlight"
+      [rowData]="rowData | async"
+      [columnDefs]="columnDefs">
+    </ag-grid-angular>
+  </div>
+</body>

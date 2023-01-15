@@ -1,4 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
+@import 'ag-grid-community/styles/ag-grid.css';
+@import 'ag-grid-community/styles/ag-theme-alpine.css';
 .btn-dash{
     width: 45%;
     height: 5em; 
@@ -32,23 +34,8 @@ table tbody :hover{
 
 }
 
-input.invalid{
 
-    border-color: red;
 
-}
-
-div.validation-error{
-
-    width: 100%;
-
-    margin-top: .25em;
-
-    font-size: 80%;
-
-    color: red;
-
-}
 .ng-invalid:not(form){
     border-left: 5px solid red;
   }

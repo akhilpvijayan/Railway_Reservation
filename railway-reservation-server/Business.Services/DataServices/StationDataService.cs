@@ -1,4 +1,5 @@
-﻿using railwayReservation.Business.DataServices;
+﻿using Microsoft.AspNetCore.Mvc;
+using railwayReservation.Business.DataServices;
 using railwayReservation.Models;
 using System;
 using System.Collections.Generic;
@@ -23,6 +24,11 @@ namespace railwayReservation.Business.Services.DataServices
         {
             return _applicationDbContext.Stations.ToList();
         }
+        public ActionResult<Stations> GetStation(int stationId)
+        {
+            return _applicationDbContext.Stations.FirstOrDefault(s=> s.stationId == stationId);
+        }
+
         #endregion
     }
 }

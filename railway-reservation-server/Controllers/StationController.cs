@@ -32,6 +32,14 @@ namespace railwayReservation.Controllers
         {
             return _stationService.GetStations();
         }
+        [HttpGet]
+        [Route("Stations/{stationId}")]
+        [ProducesResponseType(typeof(Stations), 200)]
+        [ProducesResponseType(404)]
+        public ActionResult<Stations> GetStation(int stationId)
+        {
+            return _stationService.GetStation(stationId);
+        }
         #endregion
     }
 }

@@ -1,73 +1,154 @@
-@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;900&display=swap');
-
+@import 'ag-grid-community/styles/ag-grid.css';
+@import 'ag-grid-community/styles/ag-theme-alpine.css';
+html {
+  height: 100%;
+}
 body {
-  background: #f2f2f2;
+  min-height: 100%;
+}
+html, body {
+   padding: 1px;
+   box-sizing: border-box;
+   -webkit-overflow-scrolling: touch;
 }
 
-.container  {
-  position: absolute;
-  left: 50%;
-  top: 20%;
-  transform: translate(-50%, -50%);
-  height: 100px;
-  width: 1120px;
-  background: #f2f2f2;
+.grid{
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+:root {
+  --bk-color: #1d1d2c;
+  --primary: #03a9f4;
+  --font-color: #efefef;
+}
+body {
+  font-family: "Roboto", sans-serif;
+  color: var(--font-color);
+  background-color: #000000;
+  text-transform: uppercase;
+}
+button {
+  &.primary {
+    margin: 0.8em 1em;
+    background-color: var(--primary);
+    border: none;
+    color: inherit;
+    text-transform: uppercase;
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}
+.grid-container {
+  padding: 1em 2em;
+  letter-spacing: 0.05em;
+}
+.grid-header {
+  color: white;
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
   overflow: hidden;
-  border-radius: 20px;
-  cursor: pointer;
-  box-shadow: 0 0 20px 8px #d0d0d0;
+  font-size: 0.8em;
+  border-bottom: 2px solid #c0c0c05c;
+  grid-column-gap: 3em;
+  padding: 0 0 1em 0;
+  align-items: end;
+}
+.grid-rows {
+  border-radius: 0em 0em 0.7em 0.7em;
+  overflow: hidden;
+  padding: 0.7em 0;
+  .row-cell {
+      background-color: #ea0d0d38;
+      border-radius: 5px 0 0 5px;
+      text-align: center;
+      text-align: right;
+  }
+}
+.header{
+  background-color: black;
+  color: white;
+}
+.header-cell {
+  &.amount {
+    text-align: right;
+  }
+}
+.grid-angular{
+  background-color: black;
+  color: white;
+}
+.row-item {
+  font-size: 0.8em;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  grid-template-rows: auto 1fr 3fr;
+  margin: 0.7em 0.3em;
+  background-color: #2a67d0b5;
+  box-shadow: 0 0 0 0 transparent;
+  transition: 0.2s;
+  border-radius: 0.5em;
+  grid-column-gap: 3em;
+}
+.row-item:hover {
+  box-shadow: -3px 3px 6px 1px #e1e1e161;
+  transition: 0.2s;
+  background-color: #3576e8;
+}
+.operation {
+  grid-row: 1/2;
+  grid-column: 1/2;
+}
+.row-cell {
+  grid-row: 1/2;
+  padding: 1.5em 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  &.buy {
+    color: #36fd36;
+    font-weight: bold;
+  }
+  &.sell {
+    color: #ff1e1e;
+    font-weight: bold;
+  }
 }
 
-.content {
-  position: absolute;
-  top: 50%;
-  transform: translatey(-50%);
-  text-align: justify;
-  color: black;
-  padding: 40px;
-  font-family: 'Merriweather', serif;
+.search{
+  color: white;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-bottom: 20px;
+}
+.search-header{
+  background-color: #3576e8;
+  border-radius: 0.25cm;
+  text-align:  center;
 }
 
-h1 {
-  font-weight: 900;
-}
-
-h3 {
-  font-weight: 300;
-}
-
-.flap {
+.block1 {
+  display: block;
   width: 100%;
-  height: 100%;
+  border: none;
+  background-color: #d20022;
+  font-size: 16px;
+  cursor: pointer;
+  padding-bottom: 8px;
+  padding-top: 8px;
+  text-align: center;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-weight: 600;
 }
-
-.flap::before {
-  position: absolute;
-  content: "";
-  height: 100%;
-  width: 50%;
-  background: url("https://pbs.twimg.com/profile_images/1347260174176710658/2GfSZ1i__400x400.jpg") white;
-  background-position: 100px;
-  background-repeat: no-repeat;
-  transition: 1s;
-}
-
-.flap::after {
-  position: absolute;
-  content: "";
-  height: 100%;
-  width: 50%;
-  right: 0;
-  background: url("https://pbs.twimg.com/profile_images/1347260174176710658/2GfSZ1i__400x400.jpg") white;
-  background-position: -200px;
-  background-repeat: no-repeat;
-  transition: 1s;
-}
-
-.container:hover .flap::after {
-  transform: translatex(300px);
-}
-
-.container:hover .flap::before{
-  transform: translatex(-300px);
+.block {
+  display: block;
+  width: 100%;
+  border: none;
+  background-color: #ff9f04;
+  font-size: 16px;
+  cursor: pointer;
+  padding-bottom: 8px;
+  text-align: center;
 }

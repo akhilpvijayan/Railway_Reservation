@@ -16,16 +16,17 @@ export class DashboardComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute) { }
 
-    trainForm:string = 'trainForm';
   ngOnInit(): void {
     this.stationService.getStations();
     this.trainTypeService.getTrainTypes();
   }
   onSubmit(form: NgForm) {
-      this.getTrain(this.trainForm,form);
+      this.getTrain(form);
   }
-  getTrain(trainForm:string,form: NgForm) {
-    localStorage.setItem(trainForm,JSON.stringify(form));
+  getTrain(form: NgForm) {
+    localStorage.setItem('trainType',form.value.TrainType);
+    localStorage.setItem('destination',form.value.Destination);
+    localStorage.setItem('source',form.value.Source);
       this.router.navigate(['/trainsList', { form: form.value }]);
       //this.trainService.getTrain(form).subscribe()  
     }

@@ -14,6 +14,8 @@ import { LoginComponent } from './login/login.component';
 import { TrainsComponent } from './trains/trains.component';
 import { StationsComponent } from './stations/stations.component';
 import { TrainListComponent } from './dashboard/train-list/train-list.component';
+import { AgGridModule } from 'ag-grid-angular';
+import { CellCustomComponent } from './renderers/cell-customt/cell-customt.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,8 @@ import { TrainListComponent } from './dashboard/train-list/train-list.component'
     LoginComponent,
     TrainsComponent,
     StationsComponent,
-    TrainListComponent
+    TrainListComponent,
+    CellCustomComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +35,8 @@ import { TrainListComponent } from './dashboard/train-list/train-list.component'
     HttpClientModule,
     FormsModule,
     CommonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AgGridModule
   ],
   providers: [],
   bootstrap: [AppComponent]

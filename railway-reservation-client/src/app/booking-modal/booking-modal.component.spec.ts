@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CellCustomComponent } from './cell-customt.component';
+import { BookingModalComponent } from './booking-modal.component';
 
-describe('CellCustomtComponent', () => {
-  let component: CellCustomComponent;
-  let fixture: ComponentFixture<CellCustomComponent>;
+describe('BookingModalComponent', () => {
+  let component: BookingModalComponent;
+  let fixture: ComponentFixture<BookingModalComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CellCustomComponent ]
+      declarations: [ BookingModalComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(CellCustomComponent);
+    fixture = TestBed.createComponent(BookingModalComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

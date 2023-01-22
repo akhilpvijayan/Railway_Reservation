@@ -16,6 +16,10 @@ import { StationsComponent } from './stations/stations.component';
 import { TrainListComponent } from './dashboard/train-list/train-list.component';
 import { AgGridModule } from 'ag-grid-angular';
 import { CellCustomComponent } from './renderers/cell-customt/cell-customt.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { BookingComponent } from './booking/booking.component';
+import { AgmCoreModule, GoogleMapsAPIWrapper } from '@agm/core';
+import { AgmDirectionModule } from 'agm-direction';
 
 @NgModule({
   declarations: [
@@ -27,7 +31,8 @@ import { CellCustomComponent } from './renderers/cell-customt/cell-customt.compo
     TrainsComponent,
     StationsComponent,
     TrainListComponent,
-    CellCustomComponent
+    CellCustomComponent,
+    BookingComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +41,12 @@ import { CellCustomComponent } from './renderers/cell-customt/cell-customt.compo
     FormsModule,
     CommonModule,
     ReactiveFormsModule,
-    AgGridModule
+    AgGridModule,
+    MatDialogModule,
+    AgmDirectionModule,
+    AgmCoreModule.forRoot({
+      apiKey: ''
+    }) ,
   ],
   providers: [],
   bootstrap: [AppComponent]

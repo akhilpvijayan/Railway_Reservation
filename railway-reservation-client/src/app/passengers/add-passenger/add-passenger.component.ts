@@ -25,7 +25,7 @@ export class AddPassengerComponent implements OnInit {
 
     if (this.Id != 0 || this.Id != null) {
       //getEmployee
-      this.passengerService.gerPassengerById(this.Id).subscribe(
+      this.passengerService.getPassengerById(this.Id).subscribe(
         data => {
           console.log(data);
 

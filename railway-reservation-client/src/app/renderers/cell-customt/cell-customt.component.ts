@@ -2,7 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
-import { BookingModalComponent } from 'src/app/booking-modal/booking-modal.component';
 
 @Component({
   selector: 'app-cell-customt',

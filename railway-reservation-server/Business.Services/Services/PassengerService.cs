@@ -34,9 +34,9 @@ namespace railwayReservation.Business.Services
         {
             return _passengerDataService.AddPassenger(passengers);
         }
-        public IEnumerable<Passengers> UpdatePassenger(int passengerId, Passengers passengers)
+        public IEnumerable<Passengers> UpdatePassenger(Passengers passengers)
         {
-            return _passengerDataService.UpdatePassenger(passengerId,passengers);
+            return _passengerDataService.UpdatePassenger(passengers);
         }
         public Task<Passengers> DeletePassenger(int passengerId)
         {

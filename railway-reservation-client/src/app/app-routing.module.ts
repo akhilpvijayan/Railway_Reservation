@@ -7,6 +7,7 @@ import { LoginComponent } from './login/login.component';
 import { AddPassengerComponent } from './passengers/add-passenger/add-passenger.component';
 import { PassengersComponent } from './passengers/passengers.component';
 import { StationsComponent } from './stations/stations.component';
+import { TicketComponent } from './ticket/ticket.component';
 import { TrainsComponent } from './trains/trains.component';
 
 const routes: Routes = [
@@ -17,7 +18,8 @@ const routes: Routes = [
   { path: 'trains', component: TrainsComponent},
   { path: 'addPassenger', component: AddPassengerComponent },
   { path: 'stations', component: StationsComponent},
-  { path: 'booking', component: BookingComponent},]
+  { path: 'booking', component: BookingComponent},
+  { path: 'ticket', component: TicketComponent},]
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

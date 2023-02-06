@@ -11,4 +11,5 @@ export class Passengers {
     startingPoint!: string;
     destination!: string;
     seatClass!: string;
+    journeyDate!: Date;
 }

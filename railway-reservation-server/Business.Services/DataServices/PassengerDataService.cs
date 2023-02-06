@@ -39,9 +39,9 @@ namespace railwayReservation.Business.Services.DataServices
             return GetPassenger(passengers.passengerId);
         }
 
-        public IEnumerable<Passengers> UpdatePassenger(int passengerId, Passengers passengers)
+        public IEnumerable<Passengers> UpdatePassenger(Passengers passengers)
         {
-            var passenger = _applicationDbContext.Passengers.Find(passengerId);
+            var passenger = _applicationDbContext.Passengers.Find(passengers.passengerId);
             if(passenger != null)
             {
                 passengers.passengerId = passengers.passengerId;

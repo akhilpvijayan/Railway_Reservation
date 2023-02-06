@@ -53,10 +53,10 @@ namespace railwayReservation.Controllers
         }
 
         [HttpPut]
-        [Route("Passengers/{passengerId}")]
-        public IEnumerable<Passengers> UpdatePassenger(int passengerId, Passengers passengers)
+        [Route("Passengers")]
+        public IEnumerable<Passengers> UpdatePassenger(Passengers passengers)
         {
-            return _passengerService.UpdatePassenger(passengerId, passengers);
+            return _passengerService.UpdatePassenger(passengers);
         }
 
         [HttpDelete]

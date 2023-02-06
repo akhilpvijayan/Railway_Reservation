@@ -25,6 +25,7 @@ CREATE PROCEDURE [dbo].[GetPassengerById]
 								p.seatNumber seatNumber,
 								p.startingPoint startingPoint,
 								p.destination destination,
+								p.journeyDate journeyDate,
 								(select u.userName from Users u where u.userId = p.bookedUser) bookedUser,
 								(select s.seatType from Seats s where s.seatTypeId = p.seatClass) seatClass,
 								(select t.ticketNumber from Tickets t where t.ticketId = p.ticketNumber) ticketNumber

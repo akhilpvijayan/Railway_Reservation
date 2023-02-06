@@ -20,6 +20,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { BookingComponent } from './booking/booking.component';
 import { AgmCoreModule, GoogleMapsAPIWrapper } from '@agm/core';
 import { AgmDirectionModule } from 'agm-direction';
+import { TicketComponent } from './ticket/ticket.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { AgmDirectionModule } from 'agm-direction';
     StationsComponent,
     TrainListComponent,
     CellCustomComponent,
-    BookingComponent
+    BookingComponent,
+    TicketComponent
   ],
   imports: [
     BrowserModule,

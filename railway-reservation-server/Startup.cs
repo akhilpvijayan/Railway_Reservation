@@ -42,6 +42,8 @@ namespace railwayReservation
             services.AddScoped<IStationDataService, StationDataService>();
             services.AddScoped<ITrainTypeService, TrainTypeService>();
             services.AddScoped<ITrainTypeDataService, TrainTypeDataService>();
+            services.AddScoped<ITicketService, TicketService>();
+            services.AddScoped<ITicketDataService, TicketDataService>();
 
             services.AddCors();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);

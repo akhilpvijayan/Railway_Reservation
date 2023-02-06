@@ -26,6 +26,7 @@ namespace railwayReservation.Models
         public string destination { get; set; }
         //[ForeignKey("seatClassId")]
         public string seatClass { get; set; }
-       // public virtual Seats seatClassId { get; set; }
+        public DateTime journeyDate { get; set; }
+        // public virtual Seats seatClassId { get; set; }
     }
 }

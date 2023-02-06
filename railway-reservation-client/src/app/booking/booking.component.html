@@ -18,111 +18,90 @@
                 <div class="card-body p-md-5 text-black">
                   <div class="row">
                     <div class="form-outline mb-4">
-                        <input type="text" id="form3Example8" class="form-control form-control-lg" placeholder="Enter Passenger Full Name"/>
-                        <label class="form-label" for="form3Example8" aria-placeholder="Enter passenger full name">Passenger Full Name</label>
+                        <input type="text" name="PassengerName" #PassengerName="ngModel"
+                        [(ngModel)]="passengerService.formData.passengerName" class="form-control" pattern="[a-zA-Z\s]+"
+                        placeholder="Enter Full name of the passenger" minlength="04" maxlength="40" required/>
+                        <label class="form-label" for="passengerName" aria-placeholder="Enter passenger full name">Passenger Full Name</label>
                       </div>
                   </div>
   
                   <div class="row">
                     <div class="col-md-6 mb-4">
                       <div class="form-outline">
-                        <input type="number" id="form3Example1m1" class="form-control form-control-lg" placeholder="Enter Age"/>
+                        <input type="number" type="number" name="PassengerAge" #PassengerAge="ngModel" pattern="[0-9]+"
+                        [(ngModel)]="passengerService.formData.passengerAge" class="form-control"
+                        placeholder="Enter age of the passenger" maxlength="2" required
+                        [ngClass]="{ 'is-invalid' : PassengerAge.touched && PassengerAge.invalid }" />
                         <label class="form-label" for="form3Example1m1" placeholder="Enter passenger age">Age</label>
                       </div>
                     </div>
                     <div class="col-md-6 mb-4">
                       <div class="form-outline">
-                        <input type="date" id="form3Example1n1" class="form-control form-control-lg" />
+                        <input type="date" name="JourneyDate" #JourneyDate="ngModel"
+                        [(ngModel)]="passengerService.formData.journeyDate" class="form-control" required
+                        [ngClass]="{ 'is-invalid' : JourneyDate.touched && JourneyDate.invalid }"/>
                         <label class="form-label" for="form3Example1n1">Journey Date</label>
                       </div>
                     </div>
                   </div>
 
-                  <div class="d-md-flex justify-content-start align-items-center mb-4 py-2">
-  
-                    <h6 class="mb-0 me-4">Gender: </h6>
-  
-                    <div class="form-check form-check-inline mb-0 me-4">
-                      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="femaleGender"
-                        value="option1" />
-                      <label class="form-check-label" for="femaleGender">Female</label>
-                    </div>
-  
-                    <div class="form-check form-check-inline mb-0 me-4">
-                      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="maleGender"
-                        value="option2" />
-                      <label class="form-check-label" for="maleGender">Male</label>
-                    </div>
-  
-                    <div class="form-check form-check-inline mb-0">
-                      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="otherGender"
-                        value="option3" />
-                      <label class="form-check-label" for="otherGender">Other</label>
-                    </div>
-  
-                  </div>
-  
                   <div class="row">
                     <div class="col-md-6 mb-4">
                       <div class="form-outline">
-                        <input type="text" id="" class="form-control form-control-lg" disabled [(ngModel)]="trainData.source"/>
-                        <label class="form-label">Source</label>
+                        <select name="PassengerGender" id="passengerGender" class="form-control" #PassengerGender="ngModel" required [(ngModel)]="passengerService.formData.passengerGender">
+                          <option value='Male'>
+                            Male
+                          </option>
+                          <option value='FeMale'>
+                            Female
+                          </option>
+                          <option value='Others'>
+                            Others
+                          </option>
+                        </select>
+                        <label class="form-label">Gender</label>
                       </div>
                     </div>
                     <div class="col-md-6 mb-4">
                       <div class="form-outline">
-                        <input type="text" id="form3Example1n1" class="form-control form-control-lg" disabled [(ngModel)]="trainData.destination"/>
-                        <label class="form-label" for="form3Example1n1">Destination</label>
+                        <select name="SeatClass" id="SeatClass" class="form-control" required #SeatClass="ngModel"
+                        [(ngModel)]="passengerService.formData.seatClass">
+                        <option value="" disabled selected>Select SeatClass</option>
+                        <option value="1">AC</option>
+                        <option value="2">Sleeper</option>
+                        <option value="3">Semi Sleeper</option>
+                        <option value="4">General</option>
+                    </select>
+                        <label class="form-label">Seat Class</label>
                       </div>
                     </div>
                   </div>
-  
+
                   <div class="row">
                     <div class="col-md-6 mb-4">
                       <div class="form-outline">
-                        <input type="text" id="form3Example1m1" class="form-control form-control-lg" disabled [(ngModel)]="trainData.trainName"/>
+                        <select name="TrainType" id="trainName" class="form-control" required  disabled>
+                          <option value='{{trainName}}' selected>
+                            {{trainName}}
+                          </option>
+                        </select>
                         <label class="form-label" for="form3Example1m1">Train Name</label>
                       </div>
                     </div>
                     <div class="col-md-6 mb-4">
                       <div class="form-outline">
-                        <input type="text" id="form3Example1n1" class="form-control form-control-lg" disabled [(ngModel)]="trainData.trainType"/>
-                        <label class="form-label" for="form3Example1n1">Train Type</label>
+                        <select name="TrainType" id="TrainType" class="form-control" required #TrainType="ngModel" [(ngModel)]="trainData.trainType" disabled>
+                          <option value='{{trainType}}' selected>
+                            {{trainType}}
+                          </option>
+                        </select>
+                        <label class="form-label" for="form3Example1m1">Train Type</label>
                       </div>
                     </div>
-                  </div>
-  
-                    <div class="d-md-flex justify-content-start align-items-center mb-4 py-2">
-  
-                    <h6 class="mb-0 me-4">Seat Type: </h6>
-  
-                    <div class="form-check form-check-inline mb-0 me-4">
-                      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="femaleGender"
-                        value="option1" />
-                      <label class="form-check-label" for="femaleGender">General</label>
-                    </div>
-  
-                    <div class="form-check form-check-inline mb-0 me-4">
-                      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="maleGender"
-                        value="option2" />
-                      <label class="form-check-label" for="maleGender">AC</label>
-                    </div>
-
-                    <div class="form-check form-check-inline mb-0 me-4">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="maleGender"
-                          value="option2" />
-                        <label class="form-check-label" for="maleGender">Semi-Sleeper</label>
-                      </div>
-  
-                    <div class="form-check form-check-inline mb-0">
-                      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="otherGender"
-                        value="option3" />
-                      <label class="form-check-label" for="otherGender">Sleeper</label>
-                    </div>  
                   </div>
   
                   <div class="d-flex justify-content-end pt-3">
-                    <button type="button" class="btn btn-light btn-lg">Reset all</button>
+                    <button type="button" class="btn btn-light btn-lg">Cancel</button>
                     <button type="submit" class="btn btn-warning btn-lg ms-2">Book Now</button>
                   </div>
   

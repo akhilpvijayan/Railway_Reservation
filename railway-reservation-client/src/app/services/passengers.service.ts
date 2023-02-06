@@ -25,13 +25,13 @@ export class PassengersService {
   }
 
   //update a passenger
-  updatePatient(passengers: Passengers): Observable<any> {
-    return this.httpClient.put(environment.apiUrl + "/passengers", passengers);
+  updatePassenger(passengers: Passengers): Observable<any> {
+    return this.httpClient.put(environment.apiUrl + "/Passengers",passengers);
   }
 
   //get particular passenger
-  gerPassengerById(passengerId: number): Observable<any> {
-    return this.httpClient.get(environment.apiUrl + '/Passenegers/' + passengerId);
+  getPassengerById(passengerId: number): Observable<any> {
+    return this.httpClient.get(environment.apiUrl + '/Passenegers/' + passengerId); 
     
   }
 

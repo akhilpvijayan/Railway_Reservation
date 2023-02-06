@@ -68,6 +68,9 @@ export class TrainListComponent  {
 
     onSubmit(form: NgForm) {
       this.rowData = this.trainService.getTrain(form);
+      localStorage.setItem('trainType',form.value.TrainType);
+      localStorage.setItem('destination',form.value.Destination);
+      localStorage.setItem('source',form.value.Source);
   }
 
   addBooking(){

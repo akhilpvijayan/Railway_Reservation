@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using railwayReservation.Models;
 
 namespace railwayReservation.Migrations
 {
     [DbContext(typeof(ApplicationDBContext))]
-    partial class ApplicationDBContextModelSnapshot : ModelSnapshot
+    [Migration("20230204170223_addedjouenydateinpassengers")]
+    partial class addedjouenydateinpassengers
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -239,14 +241,16 @@ namespace railwayReservation.Migrations
 
                     b.HasIndex("trainId");
 
+                    b.HasIndex("userId");
+
                     b.ToTable("Tickets");
 
                     b.HasData(
                         new
                         {
                             ticketId = 1,
-                            bookedDate = new DateTime(2023, 2, 5, 0, 0, 0, 0, DateTimeKind.Local),
-                            journeyDate = new DateTime(2023, 2, 5, 18, 50, 52, 796, DateTimeKind.Local).AddTicks(3102),
+                            bookedDate = new DateTime(2023, 2, 4, 0, 0, 0, 0, DateTimeKind.Local),
+                            journeyDate = new DateTime(2023, 2, 4, 22, 32, 22, 850, DateTimeKind.Local).AddTicks(9422),
                             ticketFare = 580,
                             ticketNumber = "A6755HI9899",
                             ticketStatus = "Confirmed",
@@ -256,7 +260,7 @@ namespace railwayReservation.Migrations
                         new
                         {
                             ticketId = 2,
-                            bookedDate = new DateTime(2023, 2, 5, 0, 0, 0, 0, DateTimeKind.Local),
+                            bookedDate = new DateTime(2023, 2, 4, 0, 0, 0, 0, DateTimeKind.Local),
                             journeyDate = new DateTime(2023, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ticketFare = 180,
                             ticketNumber = "A67OLPM9899",
@@ -522,6 +526,14 @@ namespace railwayReservation.Migrations
                         .HasForeignKey("trainId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.HasOne("railwayReservation.Models.Users", "bookedUserId")
+                        .WithMany()
+                        .HasForeignKey("userId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("bookedUserId");
 
                     b.Navigation("trainsId");
                 });

@@ -21,7 +21,6 @@ namespace railwayReservation.Models
         public int ticketFare { get; set; }
         [ForeignKey("trainsId")]
         public int trainId { get; set; }
-        public virtual Users bookedUserId { get; set; }
         public virtual Trains trainsId { get; set; }
     }
 }

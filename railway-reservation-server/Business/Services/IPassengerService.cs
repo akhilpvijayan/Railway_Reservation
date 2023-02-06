@@ -12,7 +12,7 @@ namespace railwayReservation.Business.Services
         IEnumerable<Passengers> GetAllPassengers();
         IEnumerable<Passengers> AddPassenger(Passengers passengers);
         IEnumerable<Passengers> GetPassenger(int passengerId);
-        IEnumerable<Passengers> UpdatePassenger(int passengerId, Passengers passengers);
+        IEnumerable<Passengers> UpdatePassenger(Passengers passengers);
         Task<Passengers> DeletePassenger(int passengerId);
     }
 }
